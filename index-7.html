@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Dan's Heating & Air | HVAC Service | Lexington, SC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --red:#E02020;--red-dk:#B81818;--red-lt:#FF3A3A;--red-dim:rgba(224,32,32,0.08);
+    --white:#FFFFFF;--off:#F8F8F8;--border:#E8E8E8;
+    --charcoal:#1A1A1A;--mid:#555555;--muted:#888888;--pale:#BBBBBB;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--white);color:var(--charcoal);font-family:'Inter',sans-serif;font-weight:300;overflow-x:hidden;}
+
+  .demo-banner{background:var(--charcoal);padding:.55rem 2rem;display:flex;align-items:center;justify-content:center;gap:1.5rem;position:sticky;top:0;z-index:9999;}
+  .demo-banner p{font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);}
+  .demo-banner a{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red-lt);text-decoration:none;border-bottom:1px solid rgba(255,58,58,.4);white-space:nowrap;}
+  .demo-div{width:1px;height:.9rem;background:rgba(255,255,255,.15);}
+
+  .emergency-bar{background:var(--red);padding:.65rem 2rem;display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;}
+  .eb-text{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:white;display:flex;align-items:center;gap:.6rem;}
+  .eb-dot{width:7px;height:7px;background:white;border-radius:50%;animation:blink 1.2s infinite;}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+  .eb-phone{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:800;color:white;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.4);}
+
+  nav{position:sticky;top:64px;z-index:100;background:var(--white);border-bottom:2px solid var(--charcoal);padding:1.2rem 5rem;display:flex;align-items:center;justify-content:space-between;}
+  .nav-brand{display:flex;align-items:center;gap:.6rem;}
+  .brand-icon{width:2.8rem;height:2.8rem;background:var(--red);color:white;display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
+  .brand-name{font-family:'Syne',sans-serif;font-size:1.2rem;font-weight:800;letter-spacing:-.01em;color:var(--charcoal);}
+  .brand-name span{color:var(--red);}
+  .brand-sub{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);}
+  .nav-links{display:flex;gap:2.5rem;list-style:none;}
+  .nav-links a{font-size:.78rem;font-weight:500;letter-spacing:.06em;color:var(--mid);text-decoration:none;transition:color .2s;}
+  .nav-links a:hover{color:var(--red);}
+  .nav-cta{background:var(--red);color:white;font-family:'Syne',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.75rem 1.8rem;text-decoration:none;transition:background .3s;}
+  .nav-cta:hover{background:var(--red-dk);}
+
+  .hero{background:var(--white);min-height:calc(100vh - 96px);display:grid;grid-template-columns:1fr 1fr;overflow:hidden;}
+  .hero-left{padding:7rem 5rem;display:flex;flex-direction:column;justify-content:center;border-right:2px solid var(--charcoal);}
+
+  .hero-tag{display:inline-flex;align-items:center;gap:.6rem;background:var(--red-dim);border:1px solid rgba(224,32,32,.2);padding:.45rem 1rem;margin-bottom:2.5rem;width:fit-content;opacity:0;animation:fadeUp .6s .1s forwards;}
+  .ht-dot-r{width:6px;height:6px;background:var(--red);border-radius:50%;}
+  .ht-text{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--red);}
+
+  .hero-title{font-family:'Syne',sans-serif;font-size:clamp(3rem,5.5vw,6.5rem);font-weight:800;line-height:.93;letter-spacing:-.03em;color:var(--charcoal);margin-bottom:2.5rem;opacity:0;animation:fadeUp .6s .25s forwards;}
+  .hero-title mark{background:var(--red);color:white;padding:0 .2em;}
+  .hero-body{font-size:1.05rem;line-height:1.8;color:var(--mid);max-width:44ch;margin-bottom:3rem;opacity:0;animation:fadeUp .6s .4s forwards;}
+  .hero-body strong{color:var(--charcoal);font-weight:500;}
+  .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;opacity:0;animation:fadeUp .6s .55s forwards;}
+
+  .btn-red{background:var(--red);color:white;font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:1.1rem 2.5rem;text-decoration:none;transition:all .3s;border:2px solid var(--red);}
+  .btn-red:hover{background:var(--red-dk);border-color:var(--red-dk);transform:translateY(-2px);}
+  .btn-outline{border:2px solid var(--charcoal);color:var(--charcoal);font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:1.1rem 2rem;text-decoration:none;transition:all .3s;}
+  .btn-outline:hover{background:var(--charcoal);color:white;}
+
+  .hero-stats{display:flex;gap:2.5rem;margin-top:3.5rem;padding-top:3rem;border-top:2px solid var(--border);opacity:0;animation:fadeUp .6s .7s forwards;}
+  .hs-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--red);display:block;line-height:1;}
+  .hs-label{font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.25rem;}
+
+  .hero-right{background:var(--charcoal);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:4rem;opacity:0;animation:fadeIn .8s .5s forwards;}
+  .hr-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Syne',sans-serif;font-size:18vw;font-weight:800;color:rgba(255,255,255,.025);white-space:nowrap;pointer-events:none;letter-spacing:-.05em;}
+  .hr-stripe{position:absolute;top:0;right:0;width:180px;height:180px;background:var(--red);clip-path:polygon(100% 0,0 0,100% 100%);}
+
+  .chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2rem;position:relative;z-index:1;}
+  .chip{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.7);font-size:.72rem;font-weight:500;letter-spacing:.08em;padding:.5rem 1rem;transition:all .3s;}
+  .chip:hover,.chip.hot{background:var(--red);border-color:var(--red);color:white;}
+
+  .hero-card{background:var(--white);padding:2.5rem;position:relative;z-index:1;}
+  .hc-label{font-family:'Syne',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;}
+  .hc-title{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:var(--charcoal);margin-bottom:.5rem;}
+  .hc-sub{font-size:.88rem;color:var(--mid);margin-bottom:1.5rem;}
+  .hc-phone{font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;color:var(--red);text-decoration:none;display:block;letter-spacing:-.02em;}
+  .hc-avail{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+
+  .services-section{padding:8rem 5rem;background:var(--off);border-top:2px solid var(--charcoal);}
+  .services-inner{max-width:1400px;margin:0 auto;}
+  .section-tag{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--red);margin-bottom:1rem;}
+  .section-title{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,4.5vw,5rem);font-weight:800;line-height:.95;letter-spacing:-.03em;color:var(--charcoal);margin-bottom:1rem;}
+  .section-title span{color:var(--red);}
+  .section-sub{font-size:1rem;line-height:1.8;color:var(--mid);max-width:52ch;margin-bottom:4rem;}
+
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+  .svc-card{background:var(--white);border:2px solid var(--border);padding:2.8rem 2.5rem;transition:all .3s;position:relative;}
+  .svc-card::before{content:'';position:absolute;top:-2px;left:-2px;right:-2px;height:4px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .4s;}
+  .svc-card:hover{border-color:var(--red);transform:translateY(-4px);box-shadow:0 16px 48px rgba(224,32,32,.1);}
+  .svc-card:hover::before{transform:scaleX(1);}
+  .svc-icon{font-size:2.2rem;margin-bottom:1.5rem;display:block;}
+  .svc-title{font-family:'Syne',sans-serif;font-size:1.25rem;font-weight:700;color:var(--charcoal);margin-bottom:.7rem;}
+  .svc-desc{font-size:.88rem;line-height:1.8;color:var(--mid);}
+
+  .why-section{padding:8rem 5rem;background:var(--charcoal);}
+  .why-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:8rem;align-items:center;}
+  .why-content .section-tag{color:var(--red-lt);}
+  .why-content .section-title{color:var(--white);margin-bottom:1.5rem;}
+  .why-body{font-size:1rem;line-height:1.85;color:rgba(255,255,255,.5);margin-bottom:1.5rem;}
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.06);margin-top:2.5rem;}
+  .wg-item{background:var(--charcoal);padding:2rem;transition:background .3s;}
+  .wg-item:hover{background:rgba(224,32,32,.1);}
+  .wg-icon{font-size:1.5rem;margin-bottom:.8rem;display:block;}
+  .wg-title{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;color:var(--white);margin-bottom:.4rem;}
+  .wg-sub{font-size:.8rem;color:rgba(255,255,255,.4);line-height:1.5;}
+
+  .why-visual{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.06);}
+  .wv-stat{background:var(--charcoal);padding:3rem 2.5rem;border:1px solid rgba(255,255,255,.06);transition:border-color .3s;}
+  .wv-stat:hover{border-color:var(--red);}
+  .wv-stat.red{background:var(--red);border-color:var(--red);}
+  .wv-num{font-family:'Syne',sans-serif;font-size:3.5rem;font-weight:800;color:var(--red);display:block;line-height:1;letter-spacing:-.03em;}
+  .wv-stat.red .wv-num{color:white;}
+  .wv-label{font-size:.68rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:.5rem;}
+  .wv-stat.red .wv-label{color:rgba(255,255,255,.75);}
+
+  .contact-section{padding:8rem 5rem;background:var(--white);border-top:2px solid var(--charcoal);}
+  .contact-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;gap:7rem;}
+  .contact-info .section-title{margin-bottom:2rem;}
+  .contact-blocks{display:flex;flex-direction:column;gap:1px;background:var(--border);margin-bottom:2.5rem;}
+  .cb-item{background:var(--white);display:flex;gap:1.2rem;align-items:center;padding:1.5rem;transition:background .2s;}
+  .cb-item:hover{background:var(--off);}
+  .cb-icon{width:2.8rem;height:2.8rem;background:var(--red-dim);color:var(--red);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;border:1px solid rgba(224,32,32,.2);}
+  .cb-label{font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:.2rem;}
+  .cb-val{font-size:.92rem;color:var(--charcoal);}
+
+  .contact-form{display:flex;flex-direction:column;gap:1.1rem;border:2px solid var(--charcoal);padding:3rem;}
+  .cf-title{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;letter-spacing:-.02em;color:var(--charcoal);margin-bottom:.3rem;}
+  .cf-sub{font-size:.85rem;color:var(--muted);margin-bottom:.5rem;}
+  .cf-row{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;}
+  .cf-group{display:flex;flex-direction:column;gap:.35rem;}
+  .cf-label{font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);}
+  .cf-input,.cf-select,.cf-textarea{background:var(--off);border:1.5px solid var(--border);color:var(--charcoal);padding:.85rem 1rem;font-family:'Inter',sans-serif;font-size:.9rem;font-weight:300;outline:none;width:100%;transition:border-color .3s;}
+  .cf-input:focus,.cf-select:focus,.cf-textarea:focus{border-color:var(--red);background:white;}
+  .cf-select option{background:white;}
+  .cf-textarea{min-height:100px;resize:vertical;}
+  .cf-submit{background:var(--red);color:white;font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:1.1rem;border:2px solid var(--red);cursor:pointer;transition:all .3s;}
+  .cf-submit:hover{background:var(--red-dk);border-color:var(--red-dk);}
+
+  .reviews-section{padding:8rem 5rem;background:var(--off);border-top:2px solid var(--charcoal);}
+  .reviews-inner{max-width:1400px;margin:0 auto;}
+  .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem;}
+  .rv-card{background:var(--white);border:2px solid var(--border);padding:2.5rem;transition:border-color .3s;}
+  .rv-card:hover{border-color:var(--red);}
+  .rv-stars{color:var(--red);font-size:.9rem;letter-spacing:.1em;margin-bottom:1rem;}
+  .rv-text{font-size:.92rem;line-height:1.75;color:var(--mid);margin-bottom:1.5rem;}
+  .rv-author{font-family:'Syne',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--pale);}
+
+  footer{background:var(--charcoal);padding:2.5rem 5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:4px solid var(--red);}
+  .footer-brand{display:flex;align-items:center;gap:.6rem;}
+  .fb-icon{width:2.2rem;height:2.2rem;background:var(--red);color:white;display:flex;align-items:center;justify-content:center;font-size:.9rem;}
+  .fb-name{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:white;}
+  .fb-name span{color:var(--red);}
+  .footer-copy{font-size:.68rem;color:rgba(255,255,255,.25);}
+  .footer-cred{font-size:.62rem;color:rgba(224,32,32,.4);}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+
+  @media(max-width:960px){
+    nav{padding:1rem 1.5rem;}
+    .nav-links{display:none;}
+    .hero{grid-template-columns:1fr;min-height:auto;}
+    .hero-left{padding:4rem 1.5rem;border-right:none;}
+    .hero-right{min-height:300px;}
+    .services-grid,.reviews-grid{grid-template-columns:1fr;}
+    .why-inner,.contact-inner{grid-template-columns:1fr;gap:3rem;}
+    .why-visual{grid-template-columns:1fr 1fr;}
+    .services-section,.why-section,.contact-section,.reviews-section{padding:5rem 1.5rem;}
+    footer{flex-direction:column;text-align:center;padding:2rem 1.5rem;}
+    .cf-row{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="demo-banner">
+  <p>⚠ Demo — Built by PalmettoAI</p>
+  <div class="demo-div"></div>
+  <p>Not the live Dan's Heating &amp; Air website</p>
+  <div class="demo-div"></div>
+  <a href="mailto:tony@palmettoai.com">Get yours → PalmettoAI</a>
+</div>
+
+<div class="emergency-bar">
+  <span class="eb-text"><span class="eb-dot"></span>24/7 Emergency HVAC Service — Lexington, SC</span>
+  <a href="tel:" class="eb-phone">Call Dan's Now →</a>
+</div>
+
+<nav>
+  <div class="nav-brand">
+    <div class="brand-icon">🌡️</div>
+    <div>
+      <div class="brand-name">Dan's <span>Heating</span> &amp; Air</div>
+      <div class="brand-sub">Lexington, SC · Licensed &amp; Insured</div>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">Why Dan's</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+  </ul>
+  <a href="tel:" class="nav-cta">📞 Call Now</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag"><span class="ht-dot-r"></span><span class="ht-text">Lexington's Trusted HVAC Pros</span></div>
+    <h1 class="hero-title">HOT<br/>IN<br/><mark>LEXINGTON?</mark></h1>
+    <p class="hero-body"><strong>Dan's Heating &amp; Air fixes it fast.</strong> Residential HVAC repair, installation, and maintenance — serving Lexington, SC. No call center, no franchises. Just Dan and his crew.</p>
+    <div class="hero-actions">
+      <a href="tel:" class="btn-red">📞 Call Dan's Now</a>
+      <a href="#services" class="btn-outline">See Services →</a>
+    </div>
+    <div class="hero-stats">
+      <div><span class="hs-num">15+</span><span class="hs-label">Yrs in Lexington</span></div>
+      <div><span class="hs-num">24/7</span><span class="hs-label">Emergency Line</span></div>
+      <div><span class="hs-num">★ 5.0</span><span class="hs-label">Google Rating</span></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hr-bg">HVAC</div>
+    <div class="hr-stripe"></div>
+    <div class="chips">
+      <span class="chip hot">🔥 A/C Repair</span>
+      <span class="chip">Heating</span>
+      <span class="chip">New Installs</span>
+      <span class="chip">Maintenance</span>
+      <span class="chip hot">⚡ Same Day</span>
+      <span class="chip">Heat Pumps</span>
+      <span class="chip">Mini Splits</span>
+      <span class="chip">Air Quality</span>
+    </div>
+    <div class="hero-card">
+      <p class="hc-label"><span class="eb-dot"></span>Available Now</p>
+      <h3 class="hc-title">AC out? Don't sweat it.</h3>
+      <p class="hc-sub">Call Dan's for same-day service in Lexington &amp; surrounding areas.</p>
+      <a href="tel:" class="hc-phone">(803) XXX-XXXX</a>
+      <p class="hc-avail">Mon–Sat 7AM–7PM · Emergency: 24/7</p>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="services-section">
+  <div class="services-inner">
+    <p class="section-tag reveal">What We Do</p>
+    <h2 class="section-title reveal">Every HVAC<br/><span>Problem.</span> Solved.</h2>
+    <p class="section-sub reveal">From emergency repairs to full system replacements — all makes and models, residential and light commercial.</p>
+    <div class="services-grid reveal">
+      <div class="svc-card"><span class="svc-icon">❄️</span><h3 class="svc-title">A/C Repair &amp; Service</h3><p class="svc-desc">Not cooling? Blowing warm air? We diagnose and fix all central air issues — same day when possible. No runaround, no parts-on-order delays.</p></div>
+      <div class="svc-card"><span class="svc-icon">🔥</span><h3 class="svc-title">Heating Repair</h3><p class="svc-desc">Gas furnaces, heat pumps, electric heat — if it's not keeping you warm, we find the problem fast. Emergency heat calls answered 24/7.</p></div>
+      <div class="svc-card"><span class="svc-icon">🏠</span><h3 class="svc-title">New System Installation</h3><p class="svc-desc">Honest assessments. Fair pricing. We'll tell you if a repair makes more sense than a replacement — and never sell you more than you need.</p></div>
+      <div class="svc-card"><span class="svc-icon">🔧</span><h3 class="svc-title">Preventive Maintenance</h3><p class="svc-desc">Annual tune-ups catch small problems before they become expensive emergencies. Our maintenance plan pays for itself.</p></div>
+      <div class="svc-card"><span class="svc-icon">💨</span><h3 class="svc-title">Mini-Split Systems</h3><p class="svc-desc">Ductless mini-splits for additions, garages, and sunrooms. Efficient, quiet, and perfect for spaces central air can't reach.</p></div>
+      <div class="svc-card"><span class="svc-icon">🌬️</span><h3 class="svc-title">Air Quality &amp; Filtration</h3><p class="svc-desc">UV air purifiers, whole-home humidifiers, and high-efficiency filtration. Breathe cleaner inside the home you spend the most time in.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="why-section">
+  <div class="why-inner">
+    <div class="why-content">
+      <p class="section-tag reveal">Why Dan's</p>
+      <h2 class="section-title reveal" style="color:white">Local.<br/><span>Honest.</span><br/>Fast.</h2>
+      <p class="why-body reveal">Dan's Heating &amp; Air is locally owned in Lexington, SC. No call center. No franchise. When you call, you get Dan — or crew who've been with him for years.</p>
+      <p class="why-body reveal">We built this business on referrals. That means we show up on time, charge fair prices, and we're not done until you're comfortable.</p>
+      <div class="why-grid reveal">
+        <div class="wg-item"><span class="wg-icon">📍</span><p class="wg-title">100% Local</p><p class="wg-sub">Lexington-based. Your neighbor, not a franchise.</p></div>
+        <div class="wg-item"><span class="wg-icon">⚡</span><p class="wg-title">Fast Response</p><p class="wg-sub">Same-day service available most days.</p></div>
+        <div class="wg-item"><span class="wg-icon">💰</span><p class="wg-title">Upfront Pricing</p><p class="wg-sub">You know the cost before we start. No surprises.</p></div>
+        <div class="wg-item"><span class="wg-icon">🛡️</span><p class="wg-title">Licensed &amp; Insured</p><p class="wg-sub">Fully licensed SC HVAC contractor. Always.</p></div>
+      </div>
+    </div>
+    <div class="why-visual reveal">
+      <div class="wv-stat red"><span class="wv-num">24/7</span><span class="wv-label">Emergency Service</span></div>
+      <div class="wv-stat"><span class="wv-num">15+</span><span class="wv-label">Years in Lexington</span></div>
+      <div class="wv-stat"><span class="wv-num">500+</span><span class="wv-label">Happy Customers</span></div>
+      <div class="wv-stat red"><span class="wv-num">★ 5.0</span><span class="wv-label">Google Rating</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" class="reviews-section">
+  <div class="reviews-inner">
+    <p class="section-tag reveal">Reviews</p>
+    <h2 class="section-title reveal">What Lexington<br/><span>Homeowners Say.</span></h2>
+    <div class="reviews-grid reveal">
+      <div class="rv-card"><div class="rv-stars">★★★★★</div><p class="rv-text">"AC went out on a Saturday in July. Dan answered his phone, was at my house in two hours, and had us back up before dinner. That kind of service is hard to find."</p><p class="rv-author">— Lexington Homeowner</p></div>
+      <div class="rv-card"><div class="rv-stars">★★★★★</div><p class="rv-text">"Dan told me my old unit could be repaired instead of pushing a new system. Saved me thousands. Honest answer from an honest guy — that's who I want in my house."</p><p class="rv-author">— Irmo Resident</p></div>
+      <div class="rv-card"><div class="rv-stars">★★★★★</div><p class="rv-text">"Third time using Dan's. Same great experience — on time, fair price, explains what he did. My whole neighborhood uses him now."</p><p class="rv-author">— Lexington, SC</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <p class="section-tag reveal">Get In Touch</p>
+      <h2 class="section-title reveal">Ready to<br/><span>Fix It?</span></h2>
+      <div class="contact-blocks reveal">
+        <div class="cb-item"><div class="cb-icon">📞</div><div><p class="cb-label">Phone</p><p class="cb-val">(803) XXX-XXXX</p></div></div>
+        <div class="cb-item"><div class="cb-icon">📍</div><div><p class="cb-label">Service Area</p><p class="cb-val">Lexington, Columbia &amp; surrounding SC</p></div></div>
+        <div class="cb-item"><div class="cb-icon">🕐</div><div><p class="cb-label">Hours</p><p class="cb-val">Mon–Sat 7AM–7PM · Emergency 24/7</p></div></div>
+        <div class="cb-item"><div class="cb-icon">🛡️</div><div><p class="cb-label">License</p><p class="cb-val">Licensed &amp; Insured SC HVAC Contractor</p></div></div>
+      </div>
+    </div>
+    <form class="contact-form reveal" onsubmit="handleSubmit(event)">
+      <h3 class="cf-title">Request Service</h3>
+      <p class="cf-sub">We'll call you back within 1 hour during business hours.</p>
+      <div class="cf-row">
+        <div class="cf-group"><label class="cf-label">Name</label><input class="cf-input" type="text" placeholder="Jane Smith" required/></div>
+        <div class="cf-group"><label class="cf-label">Phone</label><input class="cf-input" type="tel" placeholder="(803) 555-0100" required/></div>
+      </div>
+      <div class="cf-group"><label class="cf-label">Service Needed</label>
+        <select class="cf-select cf-input">
+          <option>A/C Not Cooling</option>
+          <option>Heating Issue</option>
+          <option>System Replacement Quote</option>
+          <option>Maintenance / Tune-Up</option>
+          <option>Emergency — Call Me Now</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="cf-group"><label class="cf-label">Address / Notes</label><textarea class="cf-textarea cf-input" placeholder="Your address and details about the issue..."></textarea></div>
+      <button type="submit" class="cf-submit">Send Service Request →</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand"><div class="fb-icon">🌡️</div><span class="fb-name">Dan's <span>Heating</span> &amp; Air</span></div>
+  <p class="footer-copy">© 2026 Dan's Heating &amp; Air · Lexington, SC · Licensed &amp; Insured</p>
+  <p class="footer-cred">Demo built by PalmettoAI · palmettoai.github.io</p>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach((e,i) => { if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);obs.unobserve(e.target);} });
+  },{threshold:.07});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  function handleSubmit(e){e.preventDefault();const b=e.target.querySelector('.cf-submit');b.textContent='✓ Got it — we\'ll call you back within 1 hour.';b.style.background='var(--charcoal)';b.style.borderColor='var(--charcoal)';b.disabled=true;}
+</script>
+</body>
+</html>
